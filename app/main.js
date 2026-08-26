@@ -74,6 +74,7 @@ function createWindow() {
     height: 650,
     minWidth: 460,
     minHeight: 580,
+    useContentSize: true,
     show: false,
     title: 'Virtual Display',
     backgroundColor: '#101317',
