@@ -10,7 +10,8 @@
     "capture:screenshot": "electron scripts/capture-screenshot.js",
     "test": "node --test test/*.test.js",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --linux AppImage"
+    "dist": "electron-builder --linux AppImage --x64",
+    "dist:linux": "electron-builder --linux AppImage deb rpm tar.gz --x64"
   },
   "license": "MIT",
   "private": true,
@@ -31,6 +32,10 @@
     "appId": "io.virtualdisplay.Controller",
     "productName": "Virtual Display",
     "asar": true,
+    "compression": "maximum",
+    "electronLanguages": [
+      "en-US"
+    ],
     "files": [
       "app/**/*",
       "assets/tray.svg",
@@ -42,6 +47,8 @@
     "linux": {
       "artifactName": "virtual-display-${version}-${arch}.${ext}",
       "category": "Utility",
+      "maintainer": "Erick Wendel",
+      "synopsis": "Tray controller for software-provisioned virtual displays",
       "icon": "assets/tray.png",
       "syncDesktopName": true,
       "target": [

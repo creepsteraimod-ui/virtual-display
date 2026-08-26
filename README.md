@@ -3,6 +3,7 @@
 **Share a dedicated screen through Sunshine without an HDMI or DisplayPort dummy plug.**
 
 [![CI](https://github.com/ErickWendel/virtual-display/actions/workflows/ci.yml/badge.svg)](https://github.com/ErickWendel/virtual-display/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/ErickWendel/virtual-display)](https://github.com/ErickWendel/virtual-display/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platform: Linux](https://img.shields.io/badge/platform-Linux-72d9ff.svg)](#current-support)
 
@@ -59,7 +60,56 @@ If multiple physical monitors are active, the app refuses to change the layout
 rather than risk disabling or rearranging them. Windows and macOS backends are
 planned but not implemented yet.
 
-## Build
+## Download and install
+
+Download the latest packages from
+[GitHub Releases](https://github.com/ErickWendel/virtual-display/releases/latest).
+
+### Bazzite and other immutable desktops
+
+Use the **AppImage**. It runs without layering an RPM into the immutable system
+and does not require a reboot.
+
+For the smoothest desktop integration, open the downloaded AppImage with
+[Gear Lever](https://flathub.org/apps/it.mijorus.gearlever) and choose
+**Move to the app menu**. Alternatively, run it directly:
+
+```bash
+chmod +x virtual-display-*-x86_64.AppImage
+./virtual-display-*-x86_64.AppImage
+```
+
+### Debian and Ubuntu
+
+```bash
+sudo apt install ./virtual-display-*-x86_64.deb
+```
+
+### Fedora and other RPM-based systems
+
+```bash
+sudo dnf install ./virtual-display-*-x86_64.rpm
+```
+
+Use the AppImage instead of the RPM on Bazzite, Silverblue, Kinoite, and other
+immutable Fedora variants.
+
+### Portable archive
+
+The `.tar.gz` release contains the unpacked application and is useful when
+AppImage, DEB, and RPM installation are unavailable.
+
+Every release includes `SHA256SUMS`. Verify files downloaded into the same
+directory with:
+
+```bash
+sha256sum --check SHA256SUMS --ignore-missing
+```
+
+Launch Virtual Display once after installing it. The app creates its login
+autostart entry and remains available from the system tray.
+
+## Build from source
 
 Node.js 22.12 or newer is required. On immutable Bazzite systems, Node can be
 installed through Linuxbrew without changing the base image.
@@ -71,18 +121,21 @@ npm test
 npm run dist
 ```
 
-The Linux build creates `dist/virtual-display-1.0.0-x86_64.AppImage`.
+`npm run dist` creates the x86_64 AppImage. To build every Linux release format:
 
-## Install
+```bash
+npm run dist:linux
+```
+
+For a local source build, the helper below installs the generated AppImage under
+`~/.local/lib`, creates a desktop launcher, and starts it:
 
 ```bash
 ./scripts/install.sh
 ```
 
-The installer copies the packaged AppImage under `~/.local/lib`, creates the
-desktop launcher, starts the tray process, and enables launch after login. It
-does not modify kernel arguments, GDM, Sunshine, Steam, or existing monitor
-configuration files.
+The helper does not modify kernel arguments, GDM, Sunshine, Steam, or existing
+monitor configuration files.
 
 ## Tray controls
 
