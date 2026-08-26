@@ -1,0 +1,51 @@
+{
+  "name": "virtual-display",
+  "version": "1.0.0",
+  "description": "Cross-platform tray controller for virtual displays",
+  "author": "Erick Wendel",
+  "main": "app/main.js",
+  "desktopName": "io.virtualdisplay.Controller.desktop",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --linux AppImage"
+  },
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ErickWendel/virtual-display.git"
+  },
+  "bugs": "https://github.com/ErickWendel/virtual-display/issues",
+  "homepage": "https://github.com/ErickWendel/virtual-display#readme",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "electron": "^42.10.1",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "io.virtualdisplay.Controller",
+    "productName": "Virtual Display",
+    "asar": true,
+    "files": [
+      "app/**/*",
+      "assets/tray.svg",
+      "assets/tray.png",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md",
+      "package.json"
+    ],
+    "linux": {
+      "artifactName": "virtual-display-${version}-${arch}.${ext}",
+      "category": "Utility",
+      "icon": "assets/tray.png",
+      "syncDesktopName": true,
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}

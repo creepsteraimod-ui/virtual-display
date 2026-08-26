@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.log
+captured/
+build/install-validation.txt
+build/kargs-before-install.txt
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.idea/
+.vscode/
+.DS_Store
+npm-debug.log*

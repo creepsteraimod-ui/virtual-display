@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:">
+  <title>Virtual Display</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand-mark" aria-hidden="true">
+        <span></span>
+      </div>
+      <div>
+        <p class="eyebrow">DISPLAY CONTROL</p>
+        <h1>Virtual Display</h1>
+      </div>
+      <span id="platform" class="platform">Linux</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="section-label">DISPLAY STATE</p>
+        <h2 id="state-title">Checking...</h2>
+        <p id="state-copy">Reading the active GNOME display configuration.</p>
+      </div>
+      <button id="display-toggle" class="power" type="button" aria-label="Toggle virtual display" disabled>
+        <span class="power-glyph"></span>
+      </button>
+    </section>
+
+    <section class="monitor-map" aria-label="Monitor arrangement">
+      <div class="monitor physical">
+        <span class="monitor-light"></span>
+        <strong id="physical-name">Physical display</strong>
+        <small>PRIMARY</small>
+      </div>
+      <div class="link"><span></span></div>
+      <div id="virtual-monitor" class="monitor virtual">
+        <span class="monitor-light"></span>
+        <strong id="virtual-name">Virtual display</strong>
+        <small id="virtual-mode">SECONDARY OUTPUT</small>
+      </div>
+    </section>
+
+    <section class="details">
+      <div class="detail-row">
+        <span>Display backend</span>
+        <strong class="pill">GNOME</strong>
+      </div>
+      <div class="detail-row">
+        <span>Start after login</span>
+        <label class="switch">
+          <input id="launch-at-login" type="checkbox">
+          <span></span>
+        </label>
+      </div>
+    </section>
+
+    <p id="error" class="error" hidden></p>
+
+    <footer>
+      <button id="display-settings" class="secondary" type="button">Display settings</button>
+      <button id="refresh" class="secondary" type="button">Refresh status</button>
+    </footer>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>

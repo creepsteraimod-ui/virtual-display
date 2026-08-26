@@ -1,0 +1,121 @@
+edid-decode (hex):
+
+00 ff ff ff ff ff ff 00 6a c4 01 00 00 00 00 00
+01 24 01 03 80 00 00 78 07 ee 91 a3 54 4c 99 26
+0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
+01 01 01 01 01 01 34 d0 00 a0 f0 70 3e 80 30 20
+35 00 00 00 00 00 00 14 00 00 00 fd 00 3b 3d 1f
+87 3c 00 0a 20 20 20 20 20 20 00 00 00 fc 00 56
+69 72 74 75 61 6c 20 44 69 73 70 0a 00 00 00 10
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 41
+
+02 03 2c f1 44 61 10 04 01 23 09 07 07 83 01 00
+00 e2 00 ca 67 03 0c 00 00 00 18 44 67 d8 5d c4
+01 78 80 30 e3 05 c0 00 e3 06 04 01 34 d0 00 a0
+f0 70 3e 80 30 20 35 00 00 00 00 00 00 14 6f 5e
+00 a0 a0 a0 29 50 30 20 35 00 00 00 00 00 00 14
+b7 20 00 90 51 20 1f 30 48 80 36 00 00 00 00 00
+00 18 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 72
+
+----------------
+
+Block 0, Base EDID:
+  EDID Structure Version & Revision: 1.3
+  Vendor & Product Identification:
+    Manufacturer: ZVD
+    Model: 1
+    Made in: week 1 of 2026
+  Basic Display Parameters & Features:
+    Digital display
+    Image size is variable
+    Gamma: 2.20
+    Monochrome or grayscale display
+    Default (sRGB) color space is primary color space
+    First detailed timing is the preferred timing
+    Supports GTF timings within operating range
+  Color Characteristics:
+    Red  : 0.6396, 0.3300
+    Green: 0.2998, 0.5996
+    Blue : 0.1503, 0.0595
+    White: 0.3125, 0.3291
+  Established Timings I & II: none
+  Standard Timings: none
+  Detailed Timing Descriptors:
+    DTD 1:  3840x2160   59.968497 Hz  16:9    133.250 kHz    533.000000 MHz (digital composite, serrate)
+                 Hfront   48 Hsync  32 Hback   80 Hpol N
+                 Vfront    3 Vsync   5 Vback   54
+    Display Range Limits:
+      Monitor ranges (GTF): 59-61 Hz V, 31-135 kHz H, max dotclock 600 MHz
+    Display Product Name: 'Virtual Disp'
+    Dummy Descriptor:
+  Extension blocks: 1
+Checksum: 0x41
+
+----------------
+
+Block 1, CTA-861 Extension Block:
+  Revision: 3
+  Underscans IT Video Formats by default
+  Basic audio support
+  Supports YCbCr 4:4:4
+  Supports YCbCr 4:2:2
+  Native detailed modes: 1
+  Video Data Block:
+    VIC  97:  3840x2160   60.000000 Hz  16:9    135.000 kHz    594.000000 MHz
+    VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz    148.500000 MHz
+    VIC   4:  1280x720    60.000000 Hz  16:9     45.000 kHz     74.250000 MHz
+    VIC   1:   640x480    59.940476 Hz   4:3     31.469 kHz     25.175000 MHz
+  Audio Data Block:
+    Linear PCM:
+      Max channels: 2
+      Supported sample rates (kHz): 48 44.1 32
+      Supported sample sizes (bits): 24 20 16
+  Speaker Allocation Data Block:
+    FL/FR - Front Left/Right
+  Video Capability Data Block:
+    YCbCr quantization: Selectable (via AVI YQ)
+    RGB quantization: Selectable (via AVI Q)
+    PT scan behavior: No Data
+    IT scan behavior: Always Underscanned
+    CE scan behavior: Always Underscanned
+  Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
+    Source physical address: 0.0.0.0
+    DC_30bit
+    DC_Y444
+    Maximum TMDS clock: 340 MHz
+  Vendor-Specific Data Block (HDMI Forum), OUI C4-5D-D8:
+    Version: 1
+    Maximum TMDS Character Rate: 600 MHz
+    SCDC Present
+    Max Fixed Rate Link: 3 and 6 Gbps per lane on 3 lanes, 6 Gbps on 4 lanes
+  Colorimetry Data Block:
+    BT2020YCC
+    BT2020RGB
+  HDR Static Metadata Data Block:
+    Electro optical transfer functions:
+      SMPTE ST2084
+    Supported static metadata descriptors:
+      Static metadata type 1
+  Detailed Timing Descriptors:
+    DTD 2:  3840x2160   59.968497 Hz  16:9    133.250 kHz    533.000000 MHz (digital composite, serrate)
+                 Hfront   48 Hsync  32 Hback   80 Hpol N
+                 Vfront    3 Vsync   5 Vback   54
+    DTD 3:  2560x1440   60.012611 Hz  16:9     88.879 kHz    241.750000 MHz (digital composite, serrate)
+                 Hfront   48 Hsync  32 Hback   80 Hpol N
+                 Vfront    3 Vsync   5 Vback   33
+    DTD 4:  1280x800    59.989399 Hz  16:10    49.851 kHz     83.750000 MHz
+                 Hfront   72 Hsync 128 Hback  200 Hpol N
+                 Vfront    3 Vsync   6 Vback   22 Vpol N
+Checksum: 0x72  Unused space in Extension Block: 29 bytes
+
+----------------
+
+edid-decode 1.32.0
+
+Warnings:
+
+Block 1, CTA-861 Extension Block:
+  Video Data Block: VIC 97 and the first DTD are not identical. Is this intended?
+
+EDID conformity: PASS
