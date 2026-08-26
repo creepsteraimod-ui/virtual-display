@@ -10,8 +10,8 @@
     "capture:screenshot": "electron scripts/capture-screenshot.js",
     "test": "node --test test/*.test.js",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --linux AppImage --x64",
-    "dist:linux": "electron-builder --linux AppImage deb rpm tar.gz --x64"
+    "dist": "electron-builder --linux AppImage --x64 --publish never",
+    "dist:linux": "electron-builder --linux AppImage deb rpm tar.gz --x64 --publish never"
   },
   "license": "MIT",
   "private": true,
